@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <div class="navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Standup home page</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a>
+                </li>
+                <li><a href="/newnote">New note</a>
+                </li>
+                <li><a href="#">Discuss</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <form action="/" method="post">
+            <div class="col-md-4 column">
+                <select name="memberName" id="memberName" class="form-control">
+                    <option value="">(Show all members)</option>
+                    <option value="Bob">Bob</option>
+                    <option value="Dmitry">Dmitry</option>
+                    <option value="Mary">Mary</option>
+                    <option value="Otis">Otis</option>
+                    <option value="Zach">Zach</option>
+                </select>
+            </div>
+            <div class="col-md-8 column">
+                <button id="filterNotes" name="filterNotes" class="btn btn-primary">Filter notes</button>
+            </div>
+        </form>
+    </div>
+    <div class="container">
+        <div class="col-md-12 column list-group">
+            {% for note in notes %}
+            <div class="list-group-item">
+                <div>Note from <em><strong class="text-success">{{note.memberName}}</strong></em> on: {{note.createdOn|date('Y-m-d')}} - for project: <strong class="text-success">{{note.project}}</strong>
+                </div>
+                <div><strong class="text-success">Work yesterday:</strong> {{note.workYesterday}}</div>
+                <div><strong class="text-success">Work today:</strong> {{note.workToday}}</div>
+                <div><strong class="text-success">Impediment:</strong> {{note.impediment}}</div>
+            </div>
+            {% endfor %}
+        </div>
+</body>
+
+</html>

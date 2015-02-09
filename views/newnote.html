@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="/stylesheets/bootstrap.css">
+	<link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+	<div class="container">
+		<h1 class="text-center">New virtual stand-up note</h1>
+		<h2 class="page-header">You can fill the form below to create new notes</h2>
+		{% if message.length > 0 %}
+		<div class="alert alert-danger alert-error">
+			{{message}}
+		</div>
+		{% endif %}
+		<form class="form-horizontal" action="newnote" method="post">
+			<div class="form-group">
+				<label for="impediment" class=" control-label">Any impediment(s)?</label> 
+				<input type="text" value="None" class="form-control" id="impediment" name="impediment">
+				<label for="workYesterday" class=" control-label">What did you do yesterday?</label>
+				<input type="text" value="" placeholder="Your yesterday's work description" class="form-control" id="workYesterday" name="workYesterday">
+				<label for="workToday" class=" control-label">What will you do today?</label>
+				<input type="text" value="" placeholder="Your today's work description" class="form-control" id="workToday" name="workToday">
+				<label for="memberName" class="control-label">Name</label> 
+				<select class="form-control" id="memberName" name="memberName">
+					<option value="Bob">Bob</option>
+					<option value="Dmitry">Dmitry</option>
+					<option value="Mary">Mary</option>
+					<option value="Otis">Otis</option>
+					<option value="Zach">Zach</option>
+				</select>
+				<label for="project" class=" control-label">Current Project/task</label> 
+				<select class="form-control" id="project" name="project">
+					<option value="Matrix">Matrix</option>
+					<option value="SDN">SDN</option>
+					<option value="BodyShop">BodyShop</option>
+					<option value="Unit-One">Unit-One</option>
+					<option value="Cloud's horse">Cloud's horse</option>
+				</select>
+				<div>
+					<button class="btn btn-success" type="submit">Save</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

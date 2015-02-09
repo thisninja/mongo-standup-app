@@ -1,0 +1,13 @@
+@import "compass/css3";
+@import "_variables.scss";
+@import "_bootswatch.scss";
+body {
+	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	line-height: 1.42857143;
+	color: $text-color;
+	background-color: $gray-darker;
+}
+#project {
+	margin-bottom: 10px;
+}
